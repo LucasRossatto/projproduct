@@ -62,16 +62,15 @@ exports.updateProducts = async (req, res) => {
   }
 };
 
-  exports.deleteProducts = async (req, res) => {
-    try {
-      const product = await productRepository.deleteProducts(req.params.id);
-      if (!product) {
-        res.status(404).json({ error: "Produto não encontrado" });
-      } else {
-        res.status(200).json({ msg: "Produto deletado com sucesso" });
-      }
-    } catch (err) {
-      res.status(500).json({ error: err.toString() });
+exports.deleteProducts = async (req, res) => {
+  try {
+    const product = await productRepository.deleteProducts(req.params.id);
+    if (!product) {
+      res.status(404).json({ error: "Produto não encontrado" });
+    } else {
+      res.status(200).json({ msg: "Produto deletado com sucesso" });
     }
-  };
-
+  } catch (err) {
+    res.status(500).json({ error: err.toString() });
+  }
+};
