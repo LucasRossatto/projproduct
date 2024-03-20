@@ -45,7 +45,7 @@ exports.createProduct = async (req, res) => {
 };
 
 // Função para atualizar um produto existente
-exports.updateProduct = async (req, res) => {
+exports.updateProducts = async (req, res) => {
   try {
     // Chama a função do repositório para atualizar um produto com base no ID fornecido
     const product = await productRepository.update(req.params.id, req.body);
@@ -61,3 +61,17 @@ exports.updateProduct = async (req, res) => {
     res.status(500).json({ error: err.toString() });
   }
 };
+
+  exports.deleteProducts = async (req, res) => {
+    try {
+      const product = await productRepository.deleteProducts(req.params.id);
+      if (!product) {
+        res.status(404).json({ error: "Produto não encontrado" });
+      } else {
+        res.status(200).json({ msg: "Produto deletado com sucesso" });
+      }
+    } catch (err) {
+      res.status(500).json({ error: err.toString() });
+    }
+  };
+

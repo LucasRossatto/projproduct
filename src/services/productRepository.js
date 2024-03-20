@@ -6,7 +6,7 @@ const fileName = "products.js";
 const filePath = path.join(__dirname, "..", "database", fileName);
 
 // Classe para interagir com o arquivo de produtos no sistema de arquivos
-class productRepository {
+class ProductRepository {
   // Método estático para obter os produtos do arquivo
   static async getProducts() {
     return new Promise((resolve, reject) => {
@@ -66,7 +66,7 @@ class productRepository {
   }
 
   // Método estático para atualizar um produto existente
-  static async updateProduct(id, product) {
+  static async updateProducts(id, product) {
     const products = await this.getProducts();
     const index = products.findIndex((p) => p.id === parseInt(id));
     if (index === -1) {
@@ -78,7 +78,7 @@ class productRepository {
   }
 
   // Método estático para excluir um produto pelo ID
-  static async deleteProduct(id) {
+  static async deleteProducts(id) {
     const products = await this.getProducts();
     const index = products.findIndex((p) => p.id === parseInt(id));
     if (index === -1) {
@@ -92,4 +92,4 @@ class productRepository {
 }
 
 // Exporta a classe productRepository para que ela possa ser usada em outros arquivos
-module.exports = productRepository;
+module.exports = ProductRepository;

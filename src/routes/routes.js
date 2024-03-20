@@ -5,8 +5,9 @@ const router = Router();
 
 router.get('/products', productController.getAllProducts);
 router.get('/products/:id', productController.getProductById);
-router.get('/products', productController.createProduct);
-router.get('/products/:id', productController.updateProducts);
-router.get('/products/:id', productController.deleteProducts);
+router.post('/products', productController.createProduct);
+router.put('/products/:id', productController.updateProducts);
+router.delete('/products/:id', productController.deleteProducts);
+
 
 module.exports = router;
