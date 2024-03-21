@@ -6,4 +6,4 @@
 
 
 > Crud usando padrão MVC.
-> Tecnologias usadas : Node, fs, express
+> Bibliotecas Js usadas : Node, fs, express
